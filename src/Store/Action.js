@@ -1,2 +1,2 @@
-export const addProduct = 'ADD PRODUCT';
-export const setState = 'SET STATE';
+export const setDish = 'SET DISH';
+export const setOrder = 'SET ORDER';

@@ -1,19 +1,23 @@
 import React from 'react';
-import './Orders.css';
 import OrderCard from "../OrderCard/OrderCard";
+import {useSelector} from "react-redux";
+import './Orders.css';
 
-const Orders = (props) => (
-    <div>
+const Orders = (props) => {
+    const orders = useSelector(state => state.orders);
+
+    return (
         <div>
-            <h2>Orders</h2>
+            <div>
+                <h2>Orders</h2>
+            </div>
+            <div>
+                {orders.map((order) => {
+                    return <OrderCard key={order.id} order={order}/>
+                })}
+            </div>
         </div>
-        <div>
-            <OrderCard/>
-            <OrderCard/>
-            <OrderCard/>
-            <OrderCard/>
-        </div>
-    </div>
-);
+    )
+};
 
 export default Orders;

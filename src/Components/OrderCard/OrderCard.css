@@ -8,5 +8,6 @@
 }
 
 .Order-Card div {
+    justify-self: flex-start;
     display: inline-block;
 }

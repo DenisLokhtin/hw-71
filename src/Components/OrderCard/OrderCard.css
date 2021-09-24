@@ -1,0 +1,12 @@
+.Order-Card {
+    border: 2px solid black;
+    border-radius: 3px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.Order-Card div {
+    display: inline-block;
+}

@@ -1,0 +1,10 @@
+.Dish-Header h2 {
+    display: inline-block;
+}
+
+.Dish-Header button {
+    display: inline-block;
+    float: right;
+    margin-top: 20px;
+    font-size: 22px;
+}

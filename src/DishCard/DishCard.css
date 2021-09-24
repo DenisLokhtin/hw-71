@@ -1,0 +1,38 @@
+.Dish-Card {
+    border: 2px solid black;
+    border-radius: 3px;
+    margin: 10px 0;
+    height: 100px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-div {
+    display: inline-block;
+}
+
+.left-div span {
+    display: inline-block;
+}
+
+.img {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+.name {
+    margin-top: 3%;
+}
+
+.right-div {
+    display: inline-block;
+    margin-top: 3%;
+}
+
+.right-div button {
+    margin-left: 30px;
+    font-size: 18px;
+}

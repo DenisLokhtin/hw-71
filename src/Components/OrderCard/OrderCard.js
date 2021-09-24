@@ -39,7 +39,7 @@ const OrderCard = (props) => {
                 <p>Order Total:</p>
                 <p>delivery: 150</p>
                 <p><b>680 KGS</b></p>
-                <button>Complete Order</button>
+                <button onClick={() => props.complete()}>Complete Order</button>
             </div>
         </div>
     )

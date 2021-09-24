@@ -2,9 +2,14 @@ import React from 'react';
 import DishCard from "../../DishCard/DishCard";
 import {useSelector} from "react-redux";
 import './Dishes.css';
+import AxiosApi from "../../AxiosAPI";
 
 const Dishes = (props) => {
     const dishes = useSelector(state => state.dishes);
+
+    const deleteDish = (e) => {
+        AxiosApi.delete('/dishes/' + e + '.json')
+    }
 
     return (
         <div>
@@ -14,7 +19,7 @@ const Dishes = (props) => {
             </div>
             <div>
                 {dishes.map((dish) => {
-                    return <DishCard key={dish.id} name={dish.name} price={dish.price} img={dish.img}/>
+                    return <DishCard delete={() => deleteDish(dish.id)} key={dish.id} name={dish.name} price={dish.price} img={dish.img}/>
                 })}
             </div>
         </div>

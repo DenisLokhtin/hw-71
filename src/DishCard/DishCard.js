@@ -10,7 +10,7 @@ const DishCard = (props) => (
         <div className="right-div">
             <span><b>{props.price}</b> KGS</span>
             <button>Edit</button>
-            <button>Delete</button>
+            <button onClick={(e) => props.delete()}>Delete</button>
         </div>
     </div>
 );

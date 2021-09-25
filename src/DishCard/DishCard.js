@@ -9,7 +9,7 @@ const DishCard = (props) => (
         <span className="name"><b>{props.name}</b></span>
         <div className="right-div">
             <span><b>{props.price}</b> KGS</span>
-            <button>Edit</button>
+            <button onClick={props.openModal}>Edit</button>
             <button onClick={(e) => props.delete()}>Delete</button>
         </div>
     </div>

@@ -1,8 +1,10 @@
-import {setDish, setOrder} from "./Action";
+import {setDish, setOrder, setModalAdds, setModalChanges} from "./Action";
 
 const initialState = {
     dishes: [],
     orders: [],
+    modalAddShown: false,
+    modalChangeShown: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -11,30 +13,10 @@ const reducer = (state = initialState, action) => {
             return {...state, dishes: action.payload}
         case setOrder:
             return {...state, orders: action.payload}
-        // case setState:
-        //     return {...state, products: action.payload};
-        // case addProduct:
-        //     if (!state.orders.hasOwnProperty(action.name)) {
-        //         return {
-        //             ...state, cart: {
-        //                 ...state.orders,
-        //                 [action.name]: {
-        //                     price: action.price,
-        //                     count: 1,
-        //                 },
-        //             }
-        //         }
-        //     }
-        //     let count = state.orders[action.name].count + 1
-        //     return {
-        //         ...state, cart: {
-        //             ...state.orders,
-        //             [action.name]: {
-        //                 price: action.price,
-        //                 count: count,
-        //             },
-        //         }
-        //     }
+        case setModalAdds:
+            return {...state, modalAddShown: !state.modalAddShown}
+        case setModalChanges:
+            return {...state, modalChangeShown: !state.modalChangeShown}
         default:
             return state;
     }

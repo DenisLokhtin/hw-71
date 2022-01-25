@@ -1,0 +1,27 @@
+.cart {
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 3px;
+    height: 50vh;
+    width: 20vw;
+    margin-left: 20px;
+    padding: 30px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.cart span {
+    float: right;
+}
+
+.order {
+    border-bottom: 2px solid black;
+}
+
+.order-btn {
+    text-align: center;
+}
+
+.order-btn button {
+    font-size: 22px;
+}

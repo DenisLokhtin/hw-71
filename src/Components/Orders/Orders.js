@@ -5,11 +5,11 @@ import './Orders.css';
 import AxiosApi from "../../AxiosAPI";
 
 const Orders = (props) => {
-    const orders = useSelector(state => state.orders);
+    const orders = useSelector(state => state.Reducer.orders);
 
     const completeOrders = (e) => {
         AxiosApi.delete('/orders/' + e + '.json')
-    }
+    };
 
     return (
         <div>
@@ -17,8 +17,8 @@ const Orders = (props) => {
                 <h2>Orders</h2>
             </div>
             <div>
-                {orders.map((order) => {
-                    return <OrderCard complete={() => completeOrders(order.id)} key={order.id} order={order}/>
+                {orders.map((order, index) => {
+                    return <OrderCard complete={() => completeOrders(order.id)} key={index} order={order}/>
                 })}
             </div>
         </div>

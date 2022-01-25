@@ -2,12 +2,11 @@ import React, {useState} from 'react';
 import Overlay from "../overlay/Overlay";
 import './ModalAdd.css'
 import {useDispatch,} from "react-redux";
-import {setModalAdds} from "../../../Store/Action";
+import {setModalAdd} from "../../../Store/actions/Action";
 import AxiosApi from "../../../AxiosAPI";
 
 const ModalAdd = (props) => {
     const dispatch = useDispatch();
-    const setModalAdd = (value) => dispatch({type: setModalAdds});
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
     const [img, setImg] = useState("");
@@ -17,16 +16,16 @@ const ModalAdd = (props) => {
             name: name,
             price: price,
             img: img
-        }
+        };
         try {
             await AxiosApi.post('/dishes.json', data)
         } finally {
             setName("");
             setPrice("");
             setImg("");
-            setModalAdd()
+            dispatch(setModalAdd());
         }
-    }
+    };
 
     return (
         <div>
@@ -40,7 +39,7 @@ const ModalAdd = (props) => {
                 <input onChange={(e) => setImg(e.target.value)} type="text"/>
                 <div>
                     <button onClick={addDish}>Send</button>
-                    <button onClick={setModalAdd}>Close</button>
+                    <button onClick={() => dispatch(setModalAdd())}>Close</button>
                 </div>
             </div>
         </div>

@@ -3,28 +3,39 @@ import DishCard from "../../DishCard/DishCard";
 import {useDispatch, useSelector} from "react-redux";
 import './Dishes.css';
 import AxiosApi from "../../AxiosAPI";
-import {setModalAdds, setModalChanges} from "../../Store/Action";
+import Cart from "../Cart/Cart";
+import {setModalAdd} from "../../Store/actions/Action";
+import {addProduct} from "../../Store/actions/cartAction";
 
 const Dishes = (props) => {
     const dispatch = useDispatch();
-    const dishes = useSelector(state => state.dishes);
-    const setModalAdd = () => dispatch({type: setModalAdds});
-    const setModalChange = () => dispatch({type: setModalChanges});
+    const dishes = useSelector(state => state.Reducer.dishes);
 
     const deleteDish = (e) => {
         AxiosApi.delete('/dishes/' + e + '.json')
-    }
+    };
+
+    const print = () => {
+        if (dishes) {
+            return dishes.map((dish) => {
+                return <DishCard add={() => dispatch(addProduct(dish.name, dish.price))}
+                                 delete={() => deleteDish(dish.id)}
+                                 key={dish.id} name={dish.name} price={dish.price} img={dish.img}/>
+            })
+        }
+    };
 
     return (
         <div>
             <div className="Dish-Header">
                 <h2>Dishes</h2>
-                <button onClick={setModalAdd}>Add new Dish</button>
+                <button onClick={() => dispatch(setModalAdd())}>Add new Dish</button>
             </div>
-            <div>
-                {dishes.map((dish) => {
-                    return <DishCard openModal={setModalChange} delete={() => deleteDish(dish.id)} key={dish.id} name={dish.name} price={dish.price} img={dish.img}/>
-                })}
+            <div className='flex'>
+                <div>
+                    {print()}
+                </div>
+                <Cart/>
             </div>
         </div>
     )
